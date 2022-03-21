@@ -1,4 +1,7 @@
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+.DS_Store
+
+### Bower ###
+bower_components/
+.bower-cache
+.bower-registry
+.bower-tmp

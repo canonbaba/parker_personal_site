@@ -1,0 +1,23 @@
+{
+  "name": "parker_personal_site",
+  "homepage": "https://github.com/canonbaba/parker_personal_site",
+  "authors": [
+    "parker <rtvk2004@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "bootstrap": "^5.1.3",
+    "animejs": "^3.2.1",
+    "magnific-popup": "^1.1.0"
+  }
+}
