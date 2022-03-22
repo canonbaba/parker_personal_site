@@ -2482,6 +2482,63 @@
   // set a flag for when the window has loaded
   AddHandler('load',function(){TagCanvas.loaded=1},window);
   })(jQuery);
+function setupTypewriter(t) {
+    var HTML = t.innerHTML;
+    t.innerHTML = "";
+    var cursorPosition = 0,
+        tag = "",
+        writingTag = false,
+        tagOpen = false,
+        typeSpeed = 50,
+    tempTypeSpeed = 0;
+
+    var type = function() {
+        if (writingTag === true) {
+            tag += HTML[cursorPosition];
+        }
+        if (HTML[cursorPosition] === "<") {
+            tempTypeSpeed = 0;
+            if (tagOpen) {
+                tagOpen = false;
+                writingTag = true;
+            } else {
+                tag = "";
+                tagOpen = true;
+                writingTag = true;
+                tag += HTML[cursorPosition];
+            }
+        }
+        if (!writingTag && tagOpen) {
+            tag.innerHTML += HTML[cursorPosition];
+        }
+        if (!writingTag && !tagOpen) {
+            if (HTML[cursorPosition] === " ") {
+                tempTypeSpeed = 0;
+            }
+            else {
+                tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+            }
+            t.innerHTML += HTML[cursorPosition];
+        }
+        if (writingTag === true && HTML[cursorPosition] === ">") {
+            tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+            writingTag = false;
+            if (tagOpen) {
+                var newSpan = document.createElement("span");
+                t.appendChild(newSpan);
+                newSpan.innerHTML = tag;
+                tag = newSpan.firstChild;
+            }
+        }
+        cursorPosition += 1;
+        if (cursorPosition < HTML.length - 1) {
+            setTimeout(type, tempTypeSpeed);
+        }
+    };
+    return {
+        type: type
+    };
+}
 $(document).ready(function () {
 
     // $('.filpCard').on("click", function(){
@@ -2513,66 +2570,12 @@ $(document).ready(function () {
     })
 
     
-    function setupTypewriter(t) {
-	    var HTML = t.innerHTML;
-	    t.innerHTML = "";
-	    var cursorPosition = 0,
-	        tag = "",
-	        writingTag = false,
-	        tagOpen = false,
-	        typeSpeed = 50,
-        tempTypeSpeed = 0;
 
-	    var type = function() {
-	        if (writingTag === true) {
-	            tag += HTML[cursorPosition];
-	        }
-	        if (HTML[cursorPosition] === "<") {
-	            tempTypeSpeed = 0;
-	            if (tagOpen) {
-	                tagOpen = false;
-	                writingTag = true;
-	            } else {
-	                tag = "";
-	                tagOpen = true;
-	                writingTag = true;
-	                tag += HTML[cursorPosition];
-	            }
-	        }
-	        if (!writingTag && tagOpen) {
-	            tag.innerHTML += HTML[cursorPosition];
-	        }
-	        if (!writingTag && !tagOpen) {
-	            if (HTML[cursorPosition] === " ") {
-	                tempTypeSpeed = 0;
-	            }
-	            else {
-	                tempTypeSpeed = (Math.random() * typeSpeed) + 50;
-	            }
-	            t.innerHTML += HTML[cursorPosition];
-	        }
-	        if (writingTag === true && HTML[cursorPosition] === ">") {
-	            tempTypeSpeed = (Math.random() * typeSpeed) + 50;
-	            writingTag = false;
-	            if (tagOpen) {
-	                var newSpan = document.createElement("span");
-	                t.appendChild(newSpan);
-	                newSpan.innerHTML = tag;
-	                tag = newSpan.firstChild;
-	            }
-	        }
-	        cursorPosition += 1;
-	        if (cursorPosition < HTML.length - 1) {
-	            setTimeout(type, tempTypeSpeed);
-	        }
-	    };
-	    return {
-	        type: type
-	    };
-	}
 	var typer = document.getElementById('typewriter');
 	typewriter = setupTypewriter(typewriter);
-	typewriter.type();
+	setTimeout(function(){
+        typewriter.type();
+    }, 5500)
 
 
     // Skill
@@ -2596,7 +2599,7 @@ $(document).ready(function () {
 
         $.magnificPopup.open({
             items: {
-              src: '#skillCanvasContainer',
+                src: '#skillCanvasContainer',
             },
             type: 'inline',
             mainClass: 'mfp-zoom-out',
@@ -2619,17 +2622,19 @@ $(document).ready(function () {
                         maxSpeed: 0.1,
                     },'skillTags')
                 },
-              }
-          });
+            }
+        });
 
     })
 
-
-
+    var scene = $('#scene')[0];
+    var parallaxInstance = new Parallax(scene);
+    parallaxInstance.friction(0.1, 0.1);
 });
 //@prepros-prepend ../../bower_components/jquery/dist/jquery.min.js
 //@prepros-prepend ../../bower_components/animejs/lib/anime.min.js;
 //@prepros-prepend ../../bower_components/magnific-popup/dist/jquery.magnific-popup.min.js;
 //@prepros-prepend _jquery.tagcanvas.js;
+//@prepros-prepend _typeWriter.js;
 
 //@prepros-prepend ./_global.js

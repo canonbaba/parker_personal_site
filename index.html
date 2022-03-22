@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>jQuery Input Lettering</title>
+        <title>Parker Chan Personal Site</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no">
@@ -9,16 +9,18 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     </head>
 
-    <?php 
-        $imagePath = "./assets/images/";
-    ?>
-
     <body>
-        <!-- <?php include "component/landing_anime.php"; ?> -->
+        <!-- landing_anime -->
+        <div class="landingAnime">
+            <h1 class="landingAnime__intro text-center">
+                I'm Parker <br>
+                Web Developer
+            </h1>
+        </div>
         <div class="page">
             <!-- BG Video -->
             <video playsinline autoplay muted loop class="videoBg">
-                <source src="<?php echo $imagePath.'videoBg.MOV'; ?>" type="video/mp4">
+                <source src="./assets/images/videoBg.MOV" type="video/mp4">
             </video>
             
             <div class="landingContainer w-100 h-100 d-flex flex-column flex-lg-row justify-content-lg-around">
@@ -70,12 +72,12 @@
                         <div class="swiper-wrapper">
                             <!-- Slide 0 -->
                             <div class="swiper-slide personalInfo">
-                                <div class="personalInfo__imgBox text-center">
-                                    <h2>Parker Chan</h2>
-                                    <h4>Web Developer</h4>
-                                    <img class="w-100 rounded-circle mt-20" src="<?php echo $imagePath.'parker.jpg'; ?>" alt="">
+                                <div id="scene" class=" position-relative text-center">
+                                    <div data-depth="0.2" class="position-relative w-100 bigTitle">Web Developer</div>
+                                    <img data-depth="0.7" class="w-100 selfImg position-relative rounded-circle" src="./assets/images/parker.jpg" alt="">
+                                    <h3 data-depth="0.3" class="position-relative text-end">Parker Chan</h3>
                                 </div>
-                                <div class="personalInfo__content textIndent-30">
+                                <div class="personalInfo__content textIndent-30 mt-50">
                                     After graduating from university, I found I love experience new thing related to web designing and development so I joined coding bootcamp. Then, I had worked as a web developer over the past three years. 
                                 </div>
                             </div>
@@ -84,7 +86,7 @@
                                 <h1 class="text-center my-20">EDUCATION</h1>
                                 <div>
                                     <div class="personalInfo__imgBox text-center">
-                                        <img class="w-70 mx-auto" src="<?php echo $imagePath.'ncku.png'; ?>" alt="">
+                                        <img class="w-70 mx-auto" src="./assets/images/ncku.png" alt="">
                                     </div>
                                     <div class="personalInfo__content">
                                         Bachelor of Arts in Department of Foreign Languages and Literature, National Cheng Kung University<br>
@@ -93,7 +95,7 @@
                                 </div>
                                 <div class="mt-30">
                                     <div class="personalInfo__imgBox text-center">
-                                        <img class="w-70 mx-auto" src="<?php echo $imagePath.'accelerate.jpg'; ?>" alt="">
+                                        <img class="w-70 mx-auto" src="./assets/images/accelerate.jpg" alt="">
                                     </div>
                                     <div class="personalInfo__content">
                                         Full-Stack Web Development Course, Accelerate Coding Bootcamps (ACCELERATE HK CODING BOOTCAMPS LIMITED) <br>
@@ -107,7 +109,7 @@
                                 <div>
                                     <h3 class="text-end border-bottom">Full Time</h3>
                                     <div class="personalInfo__imgBox text-center">
-                                        <img class="w-70 mx-auto" src="<?php echo $imagePath.'sekgamdong.png'; ?>" alt="">
+                                        <img class="w-70 mx-auto" src="./assets/images/sekgamdong.png" alt="">
                                     </div>
                                     <div class="personalInfo__content">
                                         <strong>SEKGAMDONG LTD.</strong><br>
@@ -117,7 +119,7 @@
                                 <div class="mt-50">
                                     <h3 class="text-end border-bottom">Freelance</h3>
                                     <div class="personalInfo__imgBox text-center">
-                                        <img class="w-70 mx-auto" src="<?php echo $imagePath.'idigitalts.jpg'; ?>" alt="">
+                                        <img class="w-70 mx-auto" src="./assets/images/idigitalts.jpg" alt="">
                                     </div>
                                     <div class="personalInfo__content">
                                         <strong>iDigital Technology Solutions Limited</strong><br>
@@ -131,7 +133,7 @@
                                 <h1 class="text-center my-20">Project</h1>
                                 <div>
                                     <div class="personalInfo__imgBox text-center bg-color-white py-10 my-20">
-                                        <img class="w-70 mx-auto" src="<?php echo $imagePath.'cpb.svg'; ?>" alt="">
+                                        <img class="w-70 mx-auto" src="./assets/images/cpb.svg" alt="">
                                     </div>
                                     <div class="personalInfo__content">
                                         <a class="color-white" href="https://eshop.cledepeaubeaute.com.hk/" target="_blank"><strong class="color-white">Clé de Peau Beauté (HK)</strong></a>
@@ -144,7 +146,7 @@
                                     </div>
                                     <div class="mt-30">
                                         <div class="personalInfo__imgBox text-center bg-color-white py-10 my-20">
-                                            <img class="w-70 mx-auto" src="<?php echo $imagePath.'automall.svg'; ?>" alt="">
+                                            <img class="w-70 mx-auto" src="./assets/images/automall.svg" alt="">
                                         </div>
                                         <div class="personalInfo__content">
                                             <a class="color-white" href="https://www.automall.com.hk/tc/" target="_blank"><strong class="color-white">Automall</strong></a>
@@ -157,7 +159,7 @@
                                     </div>
                                     <div class="mt-30">
                                         <div class="personalInfo__imgBox text-center bg-color-white py-10 my-20">
-                                            <img class="w-70 mx-auto" src="<?php echo $imagePath.'whoo-hk.svg'; ?>" alt="">
+                                            <img class="w-70 mx-auto" src="./assets/images/whoo-hk.svg" alt="">
                                         </div>
                                         <div class="personalInfo__content">
                                             <a class="color-white" href="https://www.whoo-hk.com/tc" target="_blank"><strong class="color-white">The history of Whoo HK</strong></a>
@@ -210,5 +212,6 @@
         <!-- JS -->
         <script src="./assets/js/main-dist.js"></script>
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     </body>
 </html>
